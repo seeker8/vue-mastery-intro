@@ -1,4 +1,10 @@
 Vue.component('product', {
+    props: {
+        premium: {
+            type: Boolean,
+            required: true
+        }
+    },
     template: `
     <div class="product">
     <div class="product-image">
@@ -8,6 +14,7 @@ Vue.component('product', {
         <h1>{{title}}</h1>
         <p v-if="inStock">In Stock</p>
         <p v-else :class="{outOfStock: !inStock}">Out of Stock</p>
+        <p>Shipping: {{shipping}}</p>
         <!-- challenge add onSale-->
         <!-- <span v-if="onSale">On Sale!</span> -->
         <ul>
@@ -76,10 +83,16 @@ Vue.component('product', {
         },
         inStock: function () {
             return this.variants[this.selectedVariant].variantQuantity;
+        },
+        shipping: function () {
+            return this.premium ? 'free' : 2.99;
         }
     }
 });
 
 var app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        premium: true
+    }
 });
