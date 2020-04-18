@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        brand: 'Vue Mastery',
         product: 'Socks',
         image: './assets/vmSocks-green-onWhite.jpg',
         inStock: true,
@@ -32,6 +33,11 @@ var app = new Vue({
         },
         removeFromCart() {
             if (this.cart > 0) this.cart -= 1;
+        }
+    },
+    computed: {
+        title: function () {
+            return this.brand + ' ' + this.product;
         }
     }
 })
