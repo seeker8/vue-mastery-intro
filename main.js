@@ -78,7 +78,7 @@ Vue.component('product', {
             this.selectedVariant = index
         },
         removeFromCart() {
-            if (this.cart > 0) this.cart -= 1;
+            this.$emit('remove-from-cart');
         }
     },
     computed: {
@@ -106,6 +106,9 @@ var app = new Vue({
     methods: {
         updateCart: function (id) {
             this.cart.push(id);
+        },
+        removeFromCart: function () {
+            this.cart.pop();
         }
     }
 });
