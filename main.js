@@ -1,3 +1,16 @@
+Vue.component('product-details', {
+    props: {
+        details: {
+            type: String,
+            required: true
+        }
+    },
+    template: `<ul>
+    <li v-for="detail in details">{{detail}}</li>
+    </ul>
+    `
+});
+
 Vue.component('product', {
     props: {
         premium: {
@@ -17,9 +30,7 @@ Vue.component('product', {
         <p>Shipping: {{shipping}}</p>
         <!-- challenge add onSale-->
         <!-- <span v-if="onSale">On Sale!</span> -->
-        <ul>
-            <li v-for="detail in details">{{detail}}</li>
-        </ul>
+        <product-details :details="details"></product-details>
         <div v-for="(variant, index) in variants" :key="variant.variantId" class="color-box"
             :style="{backgroundColor: variant.variantColor}" @mouseover="updateProduct(index)">
         </div>
