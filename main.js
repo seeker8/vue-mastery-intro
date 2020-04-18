@@ -24,8 +24,11 @@ var app = new Vue({
         sizes: ["small", "medium", "large", "extra large"]
     },
     methods: {
-        addToCart: function(){
+        addToCart: function () {
             this.cart += 1;
+        },
+        updateProduct: function (variantImage) {
+            this.image = variantImage;
         }
     }
 })
