@@ -15,6 +15,7 @@ var app = new Vue({
                 variantColor: "blue"
             }
         ],
+        cart: 0,
         description: 'A pair of warm, fuzzy socks',
         link: 'https://www.vuemastery.com/courses/intro-to-vue-js/attribute-binding',
         onSale: true,
