@@ -43,7 +43,7 @@ Vue.component('product', {
             Cart</button>
         <button @click="removeFromCart">Remove</button>
     </div>
-    <product-review></product
+    <product-review @review-submitted="addReviews"></product-review>
 </div>
     `,
     data: function () {
@@ -69,7 +69,8 @@ Vue.component('product', {
             description: 'A pair of warm, fuzzy socks',
             link: 'https://www.vuemastery.com/courses/intro-to-vue-js/attribute-binding',
             onSale: true,
-            sizes: ["small", "medium", "large", "extra large"]
+            sizes: ["small", "medium", "large", "extra large"],
+            reviews: []
         }
     },
     methods: {
@@ -79,8 +80,11 @@ Vue.component('product', {
         updateProduct: function (index) {
             this.selectedVariant = index
         },
-        removeFromCart() {
+        removeFromCart: function () {
             this.$emit('remove-from-cart');
+        },
+        addReviews: function (productReview) {
+            this.reviews.push(productReview);
         }
     },
     computed: {
@@ -101,25 +105,30 @@ Vue.component('product', {
 
 Vue.component('product-review', {
     template: `
-    <form class="review-form" @submit.prevent="onSubmit>
-       <p>
+    <form class="review-form" @submit.prevent="onSubmit">
+        <p>
           <label for="name">Name:</label>
           <input id="name" v-model="name">
-       </p>
-       <p>
+        </p>
+        
+        <p>
           <label for="review">Review:</label>
           <textarea id="review" v-model="review"></textarea>
-       </p>
-       <p>
+        </p>
+        
+        <p>
           <label for="rating">Rating:</label>
-          <select id="rating" v-model.number="rating">
-             <option>5</option>
-             <option>4</option>
-             <option>3</option>
-             <option>2</option>
-             <option>1</option>
+          <select id="review" v-model.number="rating">
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
           </select>
-       </p>
+        </p>
+
+        <p>
+          <input type="submit" value="Submit">
     </form>
     `,
     data: function () {
