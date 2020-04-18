@@ -17,6 +17,7 @@ var app = new Vue({
         ],
         description: 'A pair of warm, fuzzy socks',
         link: 'https://www.vuemastery.com/courses/intro-to-vue-js/attribute-binding',
-        onSale: true
+        onSale: true,
+        sizes: ["small", "medium", "large", "extra large"]
     }
 })
