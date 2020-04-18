@@ -24,7 +24,7 @@
                     <li v-for="detail in details">{{detail}}</li>
                 </ul>
                 <div v-for="variant in variants" :key="variant.variantId">
-                    {{variant.variantColor}}
+                    <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
                 </div>
                 <!-- challenge add sizes -->
                 <!-- <ul>
