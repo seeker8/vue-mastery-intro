@@ -4,6 +4,7 @@ var app = new Vue({
         product: 'Socks',
         description: 'A pair of warm, fuzzy socks',
         image: './assets/vmSocks-green-onWhite.jpg',
+        inStock: true,
         link: 'https://www.vuemastery.com/courses/intro-to-vue-js/attribute-binding'
     }
 })
