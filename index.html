@@ -26,6 +26,10 @@
                 <div v-for="variant in variants" :key="variant.variantId">
                     {{variant.variantColor}}
                 </div>
+                <!-- challenge add sizes -->
+                <ul>
+                    <li v-for="size in sizes">{{size}}</li>
+                </ul>
             </div>
         </div>
     </div>
