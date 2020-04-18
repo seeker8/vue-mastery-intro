@@ -20,5 +20,10 @@ var app = new Vue({
         link: 'https://www.vuemastery.com/courses/intro-to-vue-js/attribute-binding',
         onSale: true,
         sizes: ["small", "medium", "large", "extra large"]
+    },
+    methods: {
+        addToCart: function(){
+            this.cart += 1;
+        }
     }
 })
