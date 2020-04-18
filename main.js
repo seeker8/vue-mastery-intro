@@ -8,11 +8,13 @@ var app = new Vue({
         variants: [
             {
                 variantId: 2234,
-                variantColor: "green"
+                variantColor: "green",
+                variantImage: "./assets/vmSocks-green-onWhite.jpg"
             },
             {
                 variantId: 2235,
-                variantColor: "blue"
+                variantColor: "blue",
+                variantImage: "./assets/vmSocks-blue-onWhite.jpg"
             }
         ],
         cart: 0,
