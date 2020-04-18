@@ -40,9 +40,6 @@ Vue.component('product', {
         </ul> -->
         <button v-on:click="addToCart" :disabled="!inStock" :class="{disabledButton: !inStock}">Add to
             Cart</button>
-        <div class="cart">
-            <p>Cart ({{cart}})</p>
-        </div>
         <button @click="removeFromCart">Remove</button>
     </div>
 </div>
@@ -67,7 +64,6 @@ Vue.component('product', {
                     variantQuantity: 0
                 }
             ],
-            cart: 0,
             description: 'A pair of warm, fuzzy socks',
             link: 'https://www.vuemastery.com/courses/intro-to-vue-js/attribute-binding',
             onSale: true,
@@ -76,7 +72,7 @@ Vue.component('product', {
     },
     methods: {
         addToCart: function () {
-            this.cart += 1;
+            this.$emit('add-to-cart');
         },
         updateProduct: function (index) {
             this.selectedVariant = index
@@ -104,6 +100,12 @@ Vue.component('product', {
 var app = new Vue({
     el: '#app',
     data: {
-        premium: true
+        premium: true,
+        cart: 0
+    },
+    methods: {
+        updateCart: function () {
+            this.cart += 1;
+        }
     }
 });
