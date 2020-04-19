@@ -43,7 +43,7 @@ Vue.component('product', {
             Cart</button>
         <button @click="removeFromCart">Remove</button>
     </div>
-
+   <product-tabs></product-tabs>
     <div>
        <h2>Reviews</h2>
        <p v-if="reviews.length == 0">There are no reviews yet.</p>
